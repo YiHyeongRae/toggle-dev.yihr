@@ -14,7 +14,10 @@
     "next.config.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+
+  "exclude": ["node_modules"],
+  "paths": {
+    "@/*": ["./*"], //web 프로젝트 안에서 쓸 절대 경로
+    "@ui/*": ["../../packages/ui/src/*"] // ui 패키지의 절대경로와 똑같이 맞춰주기
+  }
 }
