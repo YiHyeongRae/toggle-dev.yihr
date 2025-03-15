@@ -7,9 +7,11 @@ import useDebounce from "../utils/useDebounce";
 import { Buttons } from "@repo/ui/button/button";
 import { useQueryClient } from "@tanstack/react-query";
 function Result() {
+  // 이미지 최적화용 로더
   const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
+
   const photo = usePhotoStore((state: PhotoStore) => state.photo);
 
   const mappingKeys = [
@@ -21,11 +23,12 @@ function Result() {
   const router = useRouter();
 
   const queryClient = useQueryClient();
-  const queryState = queryClient.getQueryState(["photo"]); // queryKey를 지정
+  const queryState = queryClient.getQueryState(["photo"]);
 
   const [imageOnLoaded, setImageOnLoaded] = useState(false);
 
   useEffect(() => {
+    // 두 조건이 모두 트루일경우 데이터 미조회로 간주
     if (
       queryState === undefined &&
       localStorage.getItem("toggle-photo") === null

@@ -21,6 +21,9 @@ export default function Home() {
       const res = await api.get("https://picsum.photos/id/0/info");
       setPhoto(res.data);
       loadingChange();
+
+      // 조회 후 result 로 이동
+      // 데이터 핸들링은 zustand 사용
       router.push("/result", { scroll: false });
       return res.data;
     },
