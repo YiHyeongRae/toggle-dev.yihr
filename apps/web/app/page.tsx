@@ -24,6 +24,7 @@ export default function Home() {
 
       // 조회 후 result 로 이동
       // 데이터 핸들링은 zustand 사용
+      // router를 통해 전달한다면 queryString 사용
       router.push("/result", { scroll: false });
       return res.data;
     },
