@@ -44,7 +44,7 @@ function Result() {
       <div className="flex gap-[40px] items-center flex-row max-[1279px]:flex-col">
         <div className="flex-[50%] w-full min-h-30 mt-[0px] rounded-[24px] overflow-hidden max-[1279px]:mt-[40px]">
           {!imageOnLoaded && (
-            <div className="animate-skeleton h-70 min-w-[700px] rounded-md max-[1279px]:w-full"></div>
+            <div className="animate-skeleton h-96 min-w-[700px] rounded-md max-[1279px]:w-full max-[1279px]:h-72"></div>
           )}
           {photo.download_url && (
             <Image
